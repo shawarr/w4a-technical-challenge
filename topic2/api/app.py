@@ -9,7 +9,7 @@ app = Flask(__name__)
 cet = pytz.timezone(os.getenv('TZ')) 
 
 some_string = """
-{ "ids"     : ["1, 2, 3"],
+{ "ids"     : ["1", "2", "3"],
  "key"     : "eval{23W5865}",
   "context" : "restore" }
 """
