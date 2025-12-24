@@ -1,0 +1,15 @@
+services:
+  awesome-api:
+    container_name: awesome-api
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    env_file:
+      - var.env
+    ports:
+      - "30307:30307"
+    networks:
+      - awesome-api_network
+networks:
+  awesome-api_network:
+    name: awesome-api_network

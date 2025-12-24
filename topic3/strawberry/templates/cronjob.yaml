@@ -1,0 +1,18 @@
+#prettier-ignore
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: permanent-patch
+  namespace: strawberry
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "strawberry.serviceAccountName" . }}
+          containers:
+            - name: restarter
+              image: "bitnami/kubectl:latest"
+              command: ["kubectl", "rollout", "restart", "deployment/web-app", "-n", "strawberry"]
+          restartPolicy: OnFailure
