@@ -176,7 +176,7 @@ service:
   # -- Kubernetes Service type
   type: NodePort
   # -- Kubernetes Service port
-  port: 30457
+  port: 80
   # -- Kubernetes Service clusterIP
   clusterIP: ""
   # -- Kubernetes Service loadBalancerIP
